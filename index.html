@@ -78,7 +78,7 @@
 
       // =======================================================================
       // 【在這裡加入這行優化】限制手機端最高解析度乘數，防止高階手機 Retina 螢幕因 PostProcessing 導致 GPU 爆滿過熱
-      config.devicePixelRatio = Math.min(window.devicePixelRatio, 1.5); 
+      config.devicePixelRatio = Math.min(window.devicePixelRatio, 2); 
       // =======================================================================
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {

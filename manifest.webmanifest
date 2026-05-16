@@ -1,13 +1,13 @@
 {
-    "name": "WenChingYiuExhibition",
-    "short_name": "WenChingYiuExhibition",
+    "name": "VirtualExhibition",
+    "short_name": "VirtualExhibition",
     "start_url": "index.html",
     "display": "fullscreen",
-    "background_color": "#231F20",
-    "theme_color": "#000",
+    "background_color": "#FFFFFF",
+    "theme_color": "#fff",
     "description": "",
     "icons": [{
-      "src": "TemplateData/icons/unity-logo-dark.png",
+      "src": "TemplateData/icons/unity-logo-light.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any maskable"

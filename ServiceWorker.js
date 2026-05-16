@@ -1,9 +1,9 @@
-const cacheName = "DefaultCompany-WenChingYiuExhibition-0.1";
+const cacheName = "DefaultCompany-VirtualExhibition-0.2";
 const contentToCache = [
-    "Build/WenChingYiu_Exhibition.loader.js",
-    "Build/WenChingYiu_Exhibition.framework.js",
-    "Build/WenChingYiu_Exhibition.data",
-    "Build/WenChingYiu_Exhibition.wasm",
+    "Build/VirturalExhibition.loader.js",
+    "Build/VirturalExhibition.framework.js",
+    "Build/VirturalExhibition.data",
+    "Build/VirturalExhibition.wasm",
     "TemplateData/style.css"
 
 ];

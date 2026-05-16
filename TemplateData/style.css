@@ -1,8 +1,84 @@
-body { padding: 0; margin: 0 }
-#unity-container { position: fixed; width: 100%; height: 100%; }
-#unity-canvas { width: 100%; height: 100%; background: {{{ BACKGROUND_COLOR }}} }
-#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
-#unity-logo { width: 154px; height: 130px; background: url('unity-logo-{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}.png') no-repeat center }
-#unity-progress-bar-empty { margin-left: auto; margin-right: auto; width: 141px; height: 18px; margin-top: 10px; background: url('progress-bar-empty-{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}.png') no-repeat center }
-#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('progress-bar-full-{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}.png') no-repeat center }
-#unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
+/* =======================================================================
+   全螢幕基礎重置
+   ======================================================================= */
+body { 
+  padding: 0; 
+  margin: 0; 
+  background: #FFFFFF; /* 網頁底色 */
+}
+
+#unity-container { 
+  position: fixed; 
+  width: 100%; 
+  height: 100%; 
+  left: 0;
+  top: 0;
+}
+
+#unity-canvas { 
+  width: 100%; 
+  height: 100%; 
+  background: #FFFFFF; 
+}
+
+/* =======================================================================
+   【核心修正】Loading 容器：不再使用傳統排版，改用最強大的 Grid（網格）
+   確保這個大框框本身就鎖死在螢幕正中央，且內部所有東西自動對齊中線
+   ======================================================================= */
+#unity-loading-bar { 
+  position: absolute; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  
+  display: grid;
+  grid-template-columns: 1fr; /* 單一縱列 */
+  justify-items: center;      /* 強制內部所有元件水平絕對置中 */
+  align-items: center;        /* 強制內部所有元件垂直絕對置中 */
+  gap: 20px;                  /* 核心：直接控制 LOGO 與進度條之間的距離，不使用 margin 避免推擠變形 */
+}
+
+/* =======================================================================
+   LOGO 區塊：請依照你新設計的圖檔大小，去修改 width 和 height
+   ======================================================================= */
+#unity-logo { 
+  width: 154px;               /* 如果你的新圖是正方形，可以改成如 200px */
+  height: 130px;              /* 如果你的新圖是正方形，可以改成如 200px */
+  background: url('unity-logo-light.png') no-repeat center;
+  background-size: contain;   /* 關鍵：確保新圖片完美縮放，不被切圖、不留怪異邊白 */
+}
+
+/* =======================================================================
+   進度條底條（還沒載入時的深綠色空條）
+   ======================================================================= */
+#unity-progress-bar-empty { 
+  width: 200px;                    
+  height: 10px;                    
+  background: #356F43;             
+  border-radius: 5px;              
+  overflow: hidden;    
+  margin: 0;                  /* 歸零所有外距，防止官方原版代碼向外推擠導致不置中 */
+}
+
+/* =======================================================================
+   進度條本體（隨著載入慢慢變長的亮綠色條）
+   ======================================================================= */
+#unity-progress-bar-full { 
+  width: 0%; 
+  height: 100%;                    
+  background: #02FF68;             
+  border-radius: 5px;              
+  transition: width 0.2s ease-out; 
+  margin: 0;                  /* 歸零所有外距 */
+}
+
+/* 警告橫條 */
+#unity-warning { 
+  position: absolute; 
+  left: 50%; 
+  top: 5%; 
+  transform: translate(-50%); 
+  background: white; 
+  padding: 10px; 
+  display: none; 
+}

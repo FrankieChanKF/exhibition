@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    
     <title>Unity WebGL Player | VirtualExhibition</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -32,12 +36,6 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var warningBanner = document.querySelector("#unity-warning");
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -56,12 +54,17 @@
         updateBannerVisibility();
       }
 
+      // --- �i���֨����� 2�j�۰���� Unity �� Version �������ê`�J URL �Ѽ� ---
+      var unityVersion = "0.2";
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/VirturalExhibition.loader.js";
+      
+      // �۰ʦb Loader �����[�W�������]�p .js?v="0.2"�^
+      var loaderUrl = buildUrl + "/VirturalExhibition.loader.js?v=" + encodeURIComponent(unityVersion);
       var config = {
-        dataUrl: buildUrl + "/VirturalExhibition.data.unityweb",
-        frameworkUrl: buildUrl + "/VirturalExhibition.framework.js.unityweb",
-        codeUrl: buildUrl + "/VirturalExhibition.wasm.unityweb",
+        // �۰ʦb�Ҧ��֤߸귽�ɮ׫��[�W ?v=����
+        dataUrl: buildUrl + "/VirturalExhibition.data.unityweb?v=" + encodeURIComponent(unityVersion),
+        frameworkUrl: buildUrl + "/VirturalExhibition.framework.js.unityweb?v=" + encodeURIComponent(unityVersion),
+        codeUrl: buildUrl + "/VirturalExhibition.wasm.unityweb?v=" + encodeURIComponent(unityVersion),
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "VirtualExhibition",
@@ -69,20 +72,11 @@
         showBanner: unityShowBanner,
       };
 
-      // By default Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      // =======================================================================
-      // 【在這裡加入這行優化】限制手機端最高解析度乘數，防止高階手機 Retina 螢幕因 PostProcessing 導致 GPU 爆滿過熱
+      // --- �i�֤� WebGL Post-Processing �y�Z���u�ơj ---
+      // ���������]�p iPhone Retina �ù��^�W���ѪR�״�V�A���� GPU �L���o�S�A�ѨM 10 ���᭰�W�d�y
       config.devicePixelRatio = Math.min(window.devicePixelRatio, 1.5); 
-      // =======================================================================
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';

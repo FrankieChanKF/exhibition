@@ -76,6 +76,11 @@
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
 
+      // =======================================================================
+      // 【在這裡加入這行優化】限制手機端最高解析度乘數，防止高階手機 Retina 螢幕因 PostProcessing 導致 GPU 爆滿過熱
+      config.devicePixelRatio = Math.min(window.devicePixelRatio, 1.5); 
+      // =======================================================================
+
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');

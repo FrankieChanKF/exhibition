@@ -1,24 +1,24 @@
 body { padding: 0; margin: 0 }
 #unity-container { position: fixed; width: 100%; height: 100%; }
-#unity-canvas { width: 100%; height: 100%; background: #FFFFFF }
+#unity-canvas { width: 100%; height: 100%; background: {{{ BACKGROUND_COLOR }}} }
 #unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
-#unity-logo { width: 154px; height: 130px; background: url('unity-logo-light.png') no-repeat center }
+#unity-logo { width: 154px; height: 130px; background: url('unity-logo-{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}.png') no-repeat center }
 #unity-progress-bar-empty { 
   margin-left: auto; 
   margin-right: auto; 
-  width: 200px;                    /* ï¿½eï¿½×¥iï¿½Û¦ï¿½Õ¾ï¿½ (ï¿½Ò¦pï¿½ï¿½jï¿½@ï¿½Iï¿½ï¿½ 200px) */
-  height: 10px;                    /* ï¿½ï¿½ï¿½×§ï¿½Ó¤@ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½o */
+  width: 144px;                    /* ¼e«×¥i¦Û¦æ½Õ¾ã (¨Ò¦p§ï¤j¤@ÂI¨ì 200px) */
+  height: 10px;                    /* °ª«×§ï²Ó¤@ÂI¤ñ¸ûºë½o */
   margin-top: 15px; 
-  background: #356F43;             /* ï¿½ï¬°ï¿½{ï¿½Nï¿½Pï¿½ï¿½ï¿½Hï¿½Ç¦â©³ */
-  border-radius: 5px;              /* ï¿½[ï¿½Wï¿½ê¨¤ */
-  overflow: hidden;                /* ï¿½Tï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Ó®É·|ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ê¨¤ */
+  background: #356F43;             /* §ï¬°²{¥N·Pªº²H¦Ç¦â©³ */
+  border-radius: 5px;              /* ¥[¤W¶ê¨¤ */
+  overflow: hidden;                /* ½T«O¤º±øº¡¥X¨Ó®É·|³Q¤Á¦¨¶ê¨¤ */
 }
 #unity-progress-bar-full { 
   width: 0%; 
-  height: 100%;                    /* ï¿½ñº¡¤ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ */
-  margin-top: 0px;                 /* ï¿½kï¿½sï¿½ï¿½ï¿½ */
-  background: #02FF68;             /* ï¿½iï¿½bï¿½oï¿½Ì´ï¿½ï¿½Cï¿½ï¿½Iï¿½jï¿½Ò¦pï¿½G#007AFF ï¿½O iOS ï¿½ï¿½ï¿½ï¿½ï¿½ */
-  border-radius: 5px;              /* ï¿½[ï¿½Wï¿½ê¨¤ */
-  transition: width 0.2s ease-out; /* ï¿½ï¿½ï¿½iï¿½×±ï¿½ï¿½]ï¿½ï¿½ï¿½É­Ô¦ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½iï¿½ï¿½ï¿½Êµeï¿½Pï¿½Aï¿½ï¿½ï¿½Pï¿½yï¿½Zï¿½I */
+  height: 100%;                    /* ¶ñº¡¤÷¼h°ª«× */
+  margin-top: 0px;                 /* Âk¹s¹ï»ô */
+  background: #02FF68;             /* ¡i¦b³o¸Ì´«ÃC¦â¡I¡j¨Ò¦p¡G#007AFF ¬O iOS ¬ì§ÞÂÅ */
+  border-radius: 5px;              /* ¥[¤W¶ê¨¤ */
+  transition: width 0.2s ease-out; /* Åý¶i«×±ø¶]ªº®É­Ô¦³¥­·Æ±À¶iªº°Êµe·P¡A·¥­P¬yºZ¡I */
 }
 #unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }

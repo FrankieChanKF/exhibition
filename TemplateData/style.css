@@ -41,7 +41,7 @@ body { padding: 0; margin: 0; background: #FFFFFF; }
 /* 進度條底條（還沒載入時的深綠色空條） */
 #unity-progress-bar-empty { 
   width: 200px;                    
-  height: 15px;                    
+  height: 8px;                    
   margin-top: 20px;          /* 只有上方留 20px 區隔 LOGO，不影響整體置中 */
   background: #356F43;             
   border-radius: 5px;              

@@ -32,8 +32,8 @@ body { padding: 0; margin: 0; background: #FFFFFF; }
 
 /* LOGO 區塊：請根據你新圖的實際尺寸修改 width 與 height */
 #unity-logo { 
-  width: 154px; 
-  height: 130px; 
+  width: 200px; 
+  height: 200px; 
   background: url('unity-logo-light.png') no-repeat center;
   background-size: contain;  
 }
@@ -41,7 +41,7 @@ body { padding: 0; margin: 0; background: #FFFFFF; }
 /* 進度條底條（還沒載入時的深綠色空條） */
 #unity-progress-bar-empty { 
   width: 200px;                    
-  height: 10px;                    
+  height: 15px;                    
   margin-top: 20px;          /* 只有上方留 20px 區隔 LOGO，不影響整體置中 */
   background: #356F43;             
   border-radius: 5px;              

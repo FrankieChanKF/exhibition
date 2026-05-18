@@ -1,6 +1,6 @@
 {
-    "name": "VirtualExhibition",
-    "short_name": "VirtualExhibition",
+    "name": "Virtual Exhibition",
+    "short_name": "Virtual Exhibition",
     "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#FFFFFF",

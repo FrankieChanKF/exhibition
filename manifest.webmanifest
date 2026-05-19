@@ -7,8 +7,8 @@
     "theme_color": "#fff",
     "description": "",
     "icons": [{
-      "src": "TemplateData/icon500.png",
-      "sizes": "500x500",
+      "src": "TemplateData/icon200.png",
+      "sizes": "200x200",
       "type": "image/png"
     }]
   }
